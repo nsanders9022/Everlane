@@ -17,6 +17,7 @@ namespace Everlane.Controllers
         public IActionResult ReturnTranslation()
         {
             var translationText = Translator.GetTranslation();
+            //var regex = translationText.Replace("/[^a-zA-Z0-9]/g", "");
             return Json(translationText);
         }
     }
