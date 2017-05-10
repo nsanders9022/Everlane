@@ -18,7 +18,7 @@ namespace Everlane.Models
 
         public static  string GetTranslation()
         {
-            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170510T165628Z.21b584f2009fc3b4.1d4d6367957a3e38215789b338f78a5d54c42ecb&text=i%love%chocolate&lang=de&[format=plain]&[options=1]");
+            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170510T165628Z.21b584f2009fc3b4.1d4d6367957a3e38215789b338f78a5d54c42ecb&text=i%love%chocolate&lang=de&[format=html]&[options=1]");
             var request = new RestRequest("", Method.GET);
             var response = new RestResponse();
             Task.Run(async () =>
@@ -26,8 +26,9 @@ namespace Everlane.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var translation = JsonConvert.DeserializeObject<string>(jsonResponse["text"].ToString());
-            return translation;
+            //var translation = JsonConvert.DeserializeObject<string>(jsonResponse["text"].ToString());
+            //return translation;
+            return jsonResponse.GetValue("text").ToString();
 
         }
 

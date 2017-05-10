@@ -1,6 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Home";
-    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model Everlane.Models.Translator
+
 <h1>Everlane</h1>
+
+@*@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.To)
+    @Html.TextBoxFor(model => model.To)
+    @Html.LabelFor(model => model.Body)
+    @Html.TextBoxFor(model => model.Body)
+    <input type="submit" value="Send!" />
+}*@
+
+<button class="translate">Translate</button>
+
+<div class="translate-results">
+
+</div>
