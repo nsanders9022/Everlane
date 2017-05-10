@@ -7,16 +7,27 @@
 
 <h1>Everlane</h1>
 
+<form class="translate">
+    <label>Language:</label>
+    <select id="newLanguage" name="newLanguage">
+        <option value="de">German</option>
+    </select>
+    <label>Text to translate</label>
+    <input id=newTranslation name="newTranslation"/>
+    <button type="submit">Translate</button>
+</form>
+
+
 @*@using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.To)
-    @Html.TextBoxFor(model => model.To)
-    @Html.LabelFor(model => model.Body)
-    @Html.TextBoxFor(model => model.Body)
-    <input type="submit" value="Send!" />
+    @Html.LabelFor(model => model.Language)
+    @Html.TextBoxFor(model => model.Language)
+    @Html.LabelFor(model => model.Translation)
+    @Html.TextBoxFor(model => model.Translation)
+    <input type="submit" value="Translate!" />
 }*@
 
-<button class="translate">Translate</button>
+@*<button class="translate">Translate</button>*@
 
 <div class="translate-results">
 
