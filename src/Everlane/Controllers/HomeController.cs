@@ -15,13 +15,11 @@ namespace Everlane.Controllers
         }
 
         [HttpPost]
-        public void ReturnTranslation()
+        public IActionResult GetTranslation(string newTranslation, string newLanguage)
         {
-            //var text = "hello you";
-            //var lang = "de";
-            //var translationText = Translator.GetTranslation(text, lang);
+            var translationText = Translator.GetTranslation(newTranslation, newLanguage);
             //var regex = translationText.Replace("/[^a-zA-Z0-9]/g", "");
-            
+            return Json(translationText);
         }
     }
 }
