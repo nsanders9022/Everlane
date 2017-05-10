@@ -16,15 +16,10 @@ namespace Everlane.Models
         
         public string Translation { get; set; }
 
-        public string GetTranslation()
+        public static string GetTranslation(string text, string lang)
         {
-            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + EnvironmentVariables.YandaxKey);
-
-            var request = new RestRequest("Translate/", Method.POST);
-
-            request.AddParameter("text", Translation);
-            request.AddParameter("lang", Language);
-
+            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + EnvironmentVariables.YandaxKey + "&text=" + text + "&lang=" + lang +"&[format=html]&[options=1]");
+            var request = new RestRequest("", Method.GET);
             var response = new RestResponse();
             Task.Run(async () =>
             {

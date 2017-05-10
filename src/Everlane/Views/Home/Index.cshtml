@@ -7,27 +7,17 @@
 
 <h1>Everlane</h1>
 
-<form class="translate">
-    <label>Translate to: </label>
-    <select id="languageInput">
-        <option value="de">German</option>
-    </select>
-    <label>Content: </label>
-    <textarea id="textInput"></textarea>
-    <button type="submit">Translate</button>
-</form>
-
 @*@using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Language)
-    @Html.TextBoxFor(model => model.Language)
-    @Html.LabelFor(model => model.Translation)
-    @Html.TextBoxFor(model => model.Translation)
-    <input type="submit" class="translate" value="Translate!" />
+    @Html.LabelFor(model => model.To)
+    @Html.TextBoxFor(model => model.To)
+    @Html.LabelFor(model => model.Body)
+    @Html.TextBoxFor(model => model.Body)
+    <input type="submit" value="Send!" />
 }*@
+
+<button class="translate">Translate</button>
 
 <div class="translate-results">
 
 </div>
-
-<p><a href="http://translate.yandex.com/">Powered by Yandex.Translate.</a></p>
