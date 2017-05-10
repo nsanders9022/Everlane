@@ -9,7 +9,12 @@
             url: '/Home/ReturnTranslation',
             success: function (result) {
                 console.log(result);
-                $('.translate-results').html(result);
+                var translation = $('#newTranslation').val();
+                var language = $('#newLanguage').val();
+                console.log(translation);
+                console.log(language);
+                var translationText = Translator.GetTranslation(translation, language);
+                $('.translate-results').html(translationText);
             }
         });
     });

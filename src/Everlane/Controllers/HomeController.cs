@@ -14,13 +14,14 @@ namespace Everlane.Controllers
             return View();
         }
 
-        public IActionResult ReturnTranslation()
+        [HttpPost]
+        public void ReturnTranslation()
         {
             //var text = "hello you";
             //var lang = "de";
-            var translationText = Translator.GetTranslation(text, lang);
+            //var translationText = Translator.GetTranslation(text, lang);
             //var regex = translationText.Replace("/[^a-zA-Z0-9]/g", "");
-            return Json(translationText);
+            
         }
     }
 }
