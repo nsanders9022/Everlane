@@ -14,9 +14,14 @@ namespace Everlane.Controllers
             return View();
         }
 
-        public IActionResult ReturnTranslation()
+        [HttpPost]
+        public IActionResult ReturnTranslation(string languageInput, string textInput)
         {
-            var translationText = Translator.GetTranslation();
+            var newTranslator = new Translator();
+            newTranslator.Language = languageInput;
+            newTranslator.Translation = textInput;
+
+            var translationText = newTranslator.GetTranslation();
             //var regex = translationText.Replace("/[^a-zA-Z0-9]/g", "");
             return Json(translationText);
         }

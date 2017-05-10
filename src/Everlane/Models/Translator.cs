@@ -12,14 +12,19 @@ namespace Everlane.Models
 {
     public class Translator
     {
-        public string To { get; set; }
+        public string Language { get; set; }
         
-        public string Body { get; set; }
+        public string Translation { get; set; }
 
-        public static string GetTranslation()
+        public string GetTranslation()
         {
-            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + EnvironmentVariables.YandaxKey + "&text=i%love%chocolate&lang=de&[format=html]&[options=1]");
-            var request = new RestRequest("", Method.GET);
+            var client = new RestClient("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + EnvironmentVariables.YandaxKey);
+
+            var request = new RestRequest("Translate/", Method.POST);
+
+            request.AddParameter("text", Translation);
+            request.AddParameter("lang", Language);
+
             var response = new RestResponse();
             Task.Run(async () =>
             {

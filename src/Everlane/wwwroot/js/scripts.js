@@ -1,8 +1,12 @@
 ﻿$(document).ready(function () {
-    $('.translate').click(function () {
+    $('.translate').submit(function (event) {
+        event.preventDefault();
         console.log("Inside ajax");
+        var text = $("#textInput").val();
+        console.log(text)
+        
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
             url: '/Home/ReturnTranslation',
